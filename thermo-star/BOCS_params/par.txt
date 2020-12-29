@@ -1,0 +1,138 @@
+!# input file
+
+[Mode] GROMACS
+
+[Temperature]  300.0
+
+[Structures]    1
+inp.txt
+[End Structures]
+
+[Site_Types]    5
+CG1
+CG2
+CG3
+CG4
+CG5
+[End Site_Types]
+
+[Inter_Types]  24
+!inter_name  inter_type        basis     dr         R_min      R_max  n_smooth
+ CG1CG1        Pair_Interaction  Bspline    0.01      0.250       0.469  4 0
+ CG1CG2        Pair_Interaction  Bspline    0.01      0.250       0.464  4 0
+ CG1CG3        Pair_Interaction  Bspline    0.01      0.250       0.464  4 0
+ CG1CG4        Pair_Interaction  Bspline    0.01      0.250       0.497  4 0
+ CG1CG5        Pair_Interaction  Bspline    0.01      0.250       0.584  4 0
+ CG2CG2        Pair_Interaction  Bspline    0.01      0.250       0.469  4 0
+ CG2CG3        Pair_Interaction  Bspline    0.01      0.250       0.464  4 0
+ CG2CG4        Pair_Interaction  Bspline    0.01      0.250       0.497  4 0
+ CG2CG5        Pair_Interaction  Bspline    0.01      0.250       0.584  4 0
+ CG3CG3        Pair_Interaction  Bspline    0.01      0.250       0.412  4 0
+ CG3CG4        Pair_Interaction  Bspline    0.01      0.250       0.435  4 0
+ CG3CG5        Pair_Interaction  Bspline    0.01      0.250       0.555  4 0
+ CG4CG4        Pair_Interaction  Bspline    0.01      0.250       0.525  4 0
+ CG4CG5        Pair_Interaction  Bspline    0.01      0.250       0.566  4 0
+ CG5CG5        Pair_Interaction  Bspline    0.01      0.250       0.595  4 0
+ Bonds_CG1CG3       BondStretch       linear     0.001     0.200       0.400   0
+ Bonds_CG1CG2       BondStretch       linear     0.001     0.200       0.400   0
+ Bonds_CG3CG2       BondStretch       linear     0.001     0.200       0.400   0
+ Bonds_CG2CG4       BondStretch       linear     0.001     0.200       0.400   0
+ Angles_CG1CG2CG3   Angle             linear     1.0       0           180     0
+ Angles_CG1CG3CG2   Angle             linear     1.0       0           180     0
+ Angles_CG3CG1CG2   Angle             linear     1.0       0           180     0
+ Angles_CG1CG2CG4   Angle             linear     1.0       0           180     0
+ Angles_CG3CG2CG4   Angle             linear     1.0       0           180     0
+[End Inter_Types]
+
+[Pair_Interaction] 15
+! inter_name   type1  type2           
+  CG1CG1           CG1     CG1               
+  CG1CG2           CG1     CG2              
+  CG1CG3           CG1     CG3
+  CG1CG4           CG1     CG4
+  CG1CG5           CG1     CG5
+  CG2CG2           CG2     CG2
+  CG2CG3           CG2     CG3
+  CG2CG4           CG2     CG4
+  CG2CG5           CG2     CG5
+  CG3CG3           CG3     CG3
+  CG3CG4           CG3     CG4
+  CG3CG5           CG3     CG5
+  CG4CG4           CG4     CG4
+  CG4CG5           CG4     CG5
+  CG5CG5           CG5     CG5
+[End Pair_Interaction]
+
+[BondStretch]         4
+!inter_name    site1          site2
+ Bonds_CG1CG3          CG1             CG3
+ Bonds_CG1CG2          CG1             CG2
+ Bonds_CG3CG2          CG3             CG2
+ Bonds_CG2CG4          CG2             CG4
+[End BondStretch]
+
+[Angle]        5
+!site1     site2     site3     type
+ Angles_CG1CG2CG3    CG1         CG2        CG3
+ Angles_CG1CG3CG2    CG1         CG3        CG2
+ Angles_CG3CG1CG2    CG3         CG1        CG2
+ Angles_CG1CG2CG4    CG1         CG2        CG4
+ Angles_CG3CG2CG4    CG3         CG2        CG4
+[End Angle]
+
+[TPR] 1
+BMI-PF6_bonded.btp
+[End TPR]
+ 
+![TOP_EXCL]
+!BMI-PF6_bonded.btp
+![End TOP_EXCL]
+
+[Calculation_Mode]
+FIRST_HALF
+[End Calculation_Mode]
+
+[TRIM]
+0.01
+[End TRIM]
+
+[Preconditioning]
+dimless
+no
+dimless
+no
+[End Preconditioning]
+
+[SVD]
+-1
+yes
+no
+yes
+[End SVD]
+
+[Metric_Tensor]
+no
+yes
+yes
+[End Metric_Tensor]
+
+![Regularization]
+!UNCERT
+!0
+!0
+!0.01
+![End Regularization]
+
+![Reference_Options]
+!NO
+!YES
+!NO
+!NO
+!NONE
+![End Reference_Options]
+
+![Mean_Force_Decomposition]
+![End Mean_Force_Decomposition]
+
+[Skip_Triple_Loop]
+

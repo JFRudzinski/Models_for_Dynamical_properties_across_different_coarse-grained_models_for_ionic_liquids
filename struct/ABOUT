@@ -1,0 +1,10 @@
+This directory contains the model and results for the "iter-gYBG model"---i.e., a model that reproduces the 1-D distribution functions along each CG dof, including intramolecular---parametrized at 300k
+
+Prod_run_fix-box/ - production run with Gromacs (trajectory removed). Contains run files, e.g., topology, table files, etc
+
+Analysis/
+
+T-300k/ - comparison of various models at 300K. iter-gYBG==FM_full_3_iter-7
+
+
+Vary_T/ - Temperature dependence of distributions 
